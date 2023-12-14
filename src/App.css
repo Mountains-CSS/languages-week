@@ -11,7 +11,7 @@ body {
   text-align: center;
 }
 
-.header, .info-section, .footer, .link{
+.header, .info-section, .footer{
   margin: 20px;
   padding: 20px;
   border: 1px solid #ddd;
@@ -72,6 +72,35 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
+}
+
+.french-phrases {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  opacity: 0; /* Set initial opacity to 0 */
+  transform: translateY(50px); /* Set initial position to make it hidden */
+  transition: opacity 0.5s, transform 0.5s; /* Add smooth transitions */
+}
+
+.french-phrases.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.french-phrases h2 {
+  color: #333;
+}
+
+.phrase-column {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+  margin: 10px;
 }
 
 /* Add more styles and colors as needed */
