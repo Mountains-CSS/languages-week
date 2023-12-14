@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/languages-week/static/css/main.d48c930f.css",
-    "main.js": "/languages-week/static/js/main.a888221f.js",
+    "main.css": "/languages-week/static/css/main.b1824207.css",
+    "main.js": "/languages-week/static/js/main.bd796848.js",
     "index.html": "/languages-week/index.html",
-    "main.d48c930f.css.map": "/languages-week/static/css/main.d48c930f.css.map",
-    "main.a888221f.js.map": "/languages-week/static/js/main.a888221f.js.map"
+    "main.b1824207.css.map": "/languages-week/static/css/main.b1824207.css.map",
+    "main.bd796848.js.map": "/languages-week/static/js/main.bd796848.js.map"
   },
   "entrypoints": [
-    "static/css/main.d48c930f.css",
-    "static/js/main.a888221f.js"
+    "static/css/main.b1824207.css",
+    "static/js/main.bd796848.js"
   ]
 }
