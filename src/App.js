@@ -78,11 +78,6 @@ const App = () => {
         </div>
       </main>
 
-      <div className="link">
-        <p>Watch my video!</p>
-        <p>Click here</p>
-      </div>
-
       <footer className="footer">
         <p>Join us in celebrating the vibrant and captivating world of French culture!</p>
       </footer>
