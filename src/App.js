@@ -13,7 +13,6 @@ const App = () => {
     gsap.from('.header', { opacity: 0, duration: 1, delay: 0.5, y: -50 });
     gsap.from('.info-section', { opacity: 0, duration: 1, delay: 1, y: -50 });
     gsap.from('.footer', { opacity: 0, duration: 2, delay: 3, y: -100})
-    gsap.from('.link', { opacity: 0, duration: 1, delay: 2, x: -100})
 
     // Separate animations for each heading
     gsap.from('.section-heading', {
@@ -27,21 +26,72 @@ const App = () => {
       },
     });
 
-    // Scroll-triggered animations
-    gsap.from('.scroll-animate', {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      stagger: 0.5,
-      scrollTrigger: {
-        trigger: '.info-section',
-        start: 'top 60%',
-        end: 'bottom 40%',
-        scrub: true,
-        markers: false,
-      },
-    });
-  }, []);
+        // Scroll-triggered animations
+        gsap.from('.scroll-animate', {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: '.info-section',
+            start: 'top 60%',
+            end: 'bottom 40%',
+            scrub: true,
+            markers: false,
+          },
+        });
+    
+        // Scroll-triggered animation for French Phrases
+        gsap.from('.french-phrases', {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          stagger: 0.3,
+          scrollTrigger: {
+            trigger: '.french-phrases',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: true,
+            markers: false,
+            onUpdate: (self) => {
+              const element = document.querySelector('.french-phrases');
+              const isVisible = self.progress > 0 && self.progress < 1;
+        
+              if (isVisible) {
+                element.style.opacity = 1;
+                element.style.transform = 'translateY(0)';
+              } else {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(50px)';
+              }
+            },
+          },
+        });
+    
+        // Scroll-triggered animation for Footer
+        gsap.from('.footer', {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: true,
+            markers: false,
+          },
+        });
+
+        // Animation for scroll indicator
+        gsap.from('.scroll-indicator', {
+          opacity: 0,
+          y: 10,
+          duration: 1,
+          repeat: -1, // Infinite repeat
+          yoyo: true, // Back and forth animation
+          ease: 'power1.inOut',
+        });
+      }, []);
 
   return (
     <div className="App">
@@ -78,8 +128,26 @@ const App = () => {
         </div>
       </main>
 
+      <div className="scroll-indicator">&#9660;</div>
+
+      <div className="french-phrases">
+        <h2>Phrases Shaped by History</h2>
+        <div className="phrase-column">
+          <p><span style={{ fontWeight: 'bold' }}>"Vouloir, c'est pouvoir"</span> - "When there is a will, there is a way". Means when you truly want something, you can achieve it. Signifies determination</p>
+          <p><span style={{ fontWeight: 'bold' }}>"L'art de vivre"</span> - "The art of life". Embodies the French appreciation for the finer things in life such as wine, good food etc.</p>
+        </div>
+        <div className="phrase-column">
+          <p><span style={{ fontWeight: 'bold' }}>"Rouler sur l'or"</span> - Vivid way of describing when someone is really wealthy and has a high status. In the 17<sup>th</sup> century, wealth and status is important.</p>
+          <p><span style={{ fontWeight: 'bold' }}>"Chercher la petite bête"</span> - This phrase literally translates to "find the little beast" and is used to describe people looking for the minor details.</p>
+        </div>
+        <div className="phrase-column">
+          <p><span style={{ fontWeight: 'bold' }}>"Avoir le coup de foudre"</span> - This literally means "to be struck by lightning" and refers to time when people fall in love at first sight (as quick as a lightning bolt).</p>
+          <p><span style={{ fontWeight: 'bold' }}>"La crème de la crème"</span> - Means "the cream of the cream". In French gastronomy, cream is used to enhance flavors, create wonderful textures etc. The cream of the cream refers to the best of the best.</p>
+        </div>
+      </div>
+
       <footer className="footer">
-        <p>Join us in celebrating the vibrant and captivating world of French culture!</p>
+        <p>🇫🇷 Join us in celebrating the vibrant and captivating world of French culture! 🇫🇷</p>
       </footer>
     </div>
   );
